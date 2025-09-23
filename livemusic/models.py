@@ -16,3 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class MusicVenue(models.Model):
+    name = models.CharField(max_length=100)
+    adress = models.CharField(max_length=100)
+    description = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
