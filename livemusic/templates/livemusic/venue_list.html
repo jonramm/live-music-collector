@@ -1,0 +1,15 @@
+{% extends 'livemusic/base.html' %}
+
+{% block content %}
+    {% for venue in venues %}
+        <article class="post">
+            <time class="date">
+                {{ venue.created_date }}
+            </time>
+            <h2><a href="{% url 'venue_detail' pk=venue.pk %}">{{ post.title }}</a></h2>
+            <h3>{{ venue.name }}</h3>
+            <p>{{ venue.address }}</p>
+            <p>{{ venue.description|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}

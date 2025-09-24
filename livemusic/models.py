@@ -19,6 +19,10 @@ class Post(models.Model):
     
 class MusicVenue(models.Model):
     name = models.CharField(max_length=100)
-    adress = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
     description = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name

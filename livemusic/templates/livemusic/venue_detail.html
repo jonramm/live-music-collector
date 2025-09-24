@@ -1,0 +1,21 @@
+{% extends 'livemusic/base.html' %}
+
+{% block content %}
+    <article class="post">
+        <aside class="actions">
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" href="{% url 'venue_edit' pk=venue.pk %}">
+                {% include './icons/pencil-fill.svg' %}
+            </a>
+        {% endif %}
+        </aside>
+        {% if venue.created_date %}
+            <time class="date">
+                {{ venue.created_date }}
+            </time>
+        {% endif %}
+        <h2>{{ venue.name }}</h2>
+        <p>{{ venue.address }}</p>
+        <p>{{ venue.description|linebreaksbr }}</p>
+    </article>
+{% endblock %}
